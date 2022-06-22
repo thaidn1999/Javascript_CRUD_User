@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/favicon.ico" type="image/x-icon" rel="icon" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <title>CRUD_User</title>
+  </head>
+  <body>
+    <div class="wrapper container mt-3 p-0">
+      <header class="bg-success">
+        <h3 class="container text-white py-3 m-0">Register User</h3>
+      </header>
+      <div class="container">
+        <form>
+          <div class="form-group mt-3">
+            <label for="codeStudentInput">Code Student:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="codeStudentInput"
+              required
+            />
+            <em></em>
+          </div>
+
+          <div class="form-group mt-3">
+            <label for="fullNameInput">Full Name:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="fullNameInput"
+              required
+            />
+            <em></em>
+          </div>
+
+          <div class="form-group mt-3">
+            <label for="classNameInput">Class Name: </label>
+            <input
+              type="text"
+              class="form-control"
+              id="classNameInput"
+              required
+            />
+            <em></em>
+          </div>
+
+          <div class="mb-3">
+            <button id="btn-save" class="btn btn-success">Save</button>
+            <button id="btn-reset" class="btn btn-warning">Reset</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <br />
+    <div class="show-table container p-0">
+      <table class="table table-bordered">
+        <thead class="thead--bgColor">
+          <tr>
+            <th scope="col" style="width: 10%">STT</th>
+            <th scope="col" style="width: 15%">Code Student</th>
+            <th scope="col" style="width: 40%">Full Name</th>
+            <th scope="col" style="width: 15%">Class Name</th>
+            <th scope="col" style="width: 10%"></th>
+            <th scope="col" style="width: 10%"></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <!-- script -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
