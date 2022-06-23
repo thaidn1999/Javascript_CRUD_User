@@ -6,7 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <pre>
+      <code>
+        <p id="data">
+        </p>
+      </code>
+    </pre>
+  </body>
   <script>
     const data = [
       { id: 999999, name: "Phòng to nhất", parentId: null },
@@ -34,18 +41,27 @@
       { id: 322, name: "Nhóm 2", parentId: 32 },
     ];
 
-    let size = data.length;
-    for (let i = 0; i < size; i++) {
-      let item = data[i];
-      let itemParent = data.find((itp) => itp.id === item.parentId);
-      if (itemParent) {
-        if (!itemParent.children) {
-          itemParent.children = [];
-        }
-        itemParent.children.push(item);
+    // Xu ly bai toan: Building Deep Trees in JavaScript Using Object References
+    // https://dev.to/nas5w/building-deep-trees-in-javascript-using-object-references-4565
+    const idMapping = data.reduce((acc, el, index) => {
+      acc[el.id] = index;
+      return acc;
+    }, {});
+
+    console.log(idMapping);
+
+    let root;
+    data.forEach((el) => {
+      if (el.parentId === null) {
+        root = el;
+        return;
       }
-    }
-    console.log(data[0]);
+      const parentEl = data[idMapping[el.parentId]];
+      parentEl.children = [...(parentEl.children || []), el];
+    });
+
+    var renderData = document.getElementById("data");
+    renderData.innerHTML = JSON.stringify(root, null, 4);
 
     // Chuyển data sang dạng sau
 
